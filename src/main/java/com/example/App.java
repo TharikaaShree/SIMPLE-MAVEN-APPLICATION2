@@ -1,24 +1,23 @@
 package com.example;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-public class AppTest {
-    App app = new App();
-    @Test
-    void testAddition() {
-        assertEquals(8, app.add(5,3));
-    }
-    @Test
-    void testSubtraction() {
-        assertEquals(2, app.subtract(5,3));
-    }
+public class App {
 
-    @Test
-    void testMultiplication() {
-        assertEquals(15, app.multiply(5,3));
+    public int add(int a, int b) {
+        return a + b;
     }
-
-    @Test
-    void testDivision() {
-        assertEquals(2, app.divide(6,3));
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+    public int divide(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+    public static void main(String[] args) {
+        App calc = new App();
+        System.out.println("Addition: " + calc.add(5,3));
     }
 }
